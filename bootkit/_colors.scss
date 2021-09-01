@@ -7,25 +7,27 @@
     background-color: $val;
   }
 
-  // light variations
-  @for $i from 1 through 9 {
-    .text-#{$key}-light-#{$i} {
-      color: mix(white, $val, $i * 10); // mix i% white with $val
+  @if ($val !=black and $val!=white) {
+    // light variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-light-#{$i} {
+        color: mix(white, $val, $i * 10); // mix i% white with $val
+      }
+
+      .bg-#{$key}-light-#{$i} {
+        background-color: mix(white, $val, $i * 10); // mix i% white with $val
+      }
     }
 
-    .bg-#{$key}-light-#{$i} {
-      background-color: mix(white, $val, $i * 10); // mix i% white with $val
-    }
-  }
+    // dark variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-dark-#{$i} {
+        color: mix(black, $val, $i * 10); // mix i% black with $val
+      }
 
-  // dark variations
-  @for $i from 1 through 9 {
-    .text-#{$key}-dark-#{$i} {
-      color: mix(black, $val, $i * 10); // mix i% black with $val
-    }
-
-    .bg-#{$key}-dark-#{$i} {
-      background-color: mix(black, $val, $i * 10); // mix i% black with $val
+      .bg-#{$key}-dark-#{$i} {
+        background-color: mix(black, $val, $i * 10); // mix i% black with $val
+      }
     }
   }
 }
